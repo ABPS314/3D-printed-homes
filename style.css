@@ -22,3 +22,26 @@ nav ul li a {
     color: white;
     text-decoration: none;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+h1 {
+    color: #333;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+input, select {
+    padding: 8px;
+    margin-top: 5px;
+    width: 200px;
+}
+h2 {
+    margin-top: 20px;
+    color: #007bff;
+}
