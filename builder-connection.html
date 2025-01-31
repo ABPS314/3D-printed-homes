@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with a Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Find a 3D Home Builder</h1>
+    <p>Fill out the form below, and we will connect you with trusted 3D home builders.</p>
+    
+    <form id="builderForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+        <label for="location">Preferred Build Location:</label>
+        <input type="text" id="location" required>
+
+        <label for="budget">Estimated Budget ($):</label>
+        <input type="number" id="budget">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="confirmationMessage" style="display:none; color: green;">Your request has been submitted!</p>
+
+    <script>
+        document.getElementById("builderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("confirmationMessage").style.display = "block";
+        });
+    </script>
+</body>
+</html>
