@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Customization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Customize Your 3D-Printed Home</h1>
+    <form id="customizationForm">
+        <label for="size">Select House Size:</label>
+        <select id="size">
+            <option value="500">Small (500 sq. ft.)</option>
+            <option value="1000">Medium (1000 sq. ft.)</option>
+            <option value="1500">Large (1500 sq. ft.)</option>
+        </select>
+
+        <label for="rooms">Number of Rooms:</label>
+        <input type="number" id="rooms" min="1" max="10" value="3">
+
+        <label for="floors">Number of Floors:</label>
+        <input type="number" id="floors" min="1" max="3" value="1">
+
+        <label for="features">Additional Features:</label>
+        <div>
+            <input type="checkbox" id="pool" value="15000">
+            <label for="pool">Swimming Pool ($15,000)</label>
+        </div>
+        <div>
+            <input type="checkbox" id="solar" value="10000">
+            <label for="solar">Solar Panels ($10,000)</label>
+        </div>
+        <div>
+            <input type="checkbox" id="garden" value="5000">
+            <label for="garden">Garden ($5,000)</label>
+        </div>
+
+        <h2>Estimated Cost: $<span id="totalCost">0</span></h2>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("customizationForm");
+        const size = document.getElementById("size");
+        const rooms = document.getElementById("rooms");
+        const floors = document.getElementById("floors");
+        const pool = document.getElementById("pool");
+        const solar = document.getElementById("solar");
+        const garden = document.getElementById("garden");
+        const totalCost = document.getElementById("totalCost");
+
+        form.addEventListener("input", calculateCost);
+
+        function calculateCost() {
+            let baseCost = parseInt(size.value);
+            baseCost += parseInt(rooms.value) * 1000;
+            baseCost += parseInt(floors.value) * 5000;
+
+            if (pool.checked) baseCost += parseInt(pool.value);
+            if (solar.checked) baseCost += parseInt(solar.value);
+            if (garden.checked) baseCost += parseInt(garden.value);
+
+            totalCost.textContent = baseCost;
+        }
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Your customized home details have been submitted!");
+        });
+    </script>
+</body>
+</html>
