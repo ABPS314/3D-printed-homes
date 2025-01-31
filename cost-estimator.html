@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Estimator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>3D-Printed Home Cost Estimator</h1>
+    
+    <label for="size">House Size (sq. ft.):</label>
+    <input type="number" id="size" placeholder="Enter size" oninput="calculateCost()">
+    
+    <label for="material">Material Type:</label>
+    <select id="material" onchange="calculateCost()">
+        <option value="50">Standard ($50 per sq. ft.)</option>
+        <option value="70">Premium ($70 per sq. ft.)</option>
+        <option value="90">Luxury ($90 per sq. ft.)</option>
+    </select>
+    
+    <label for="labor">Labor Cost per sq. ft. ($):</label>
+    <input type="number" id="labor" value="20" oninput="calculateCost()">
+    
+    <h2>Total Estimated Cost: $<span id="total-cost">0</span></h2>
+    
+    <script>
+        function calculateCost() {
+            let size = document.getElementById("size").value;
+            let material = document.getElementById("material").value;
+            let labor = document.getElementById("labor").value;
+            
+            if (size && material && labor) {
+                let totalCost = size * (parseInt(material) + parseInt(labor));
+                document.getElementById("total-cost").textContent = totalCost.toLocaleString();
+            } else {
+                document.getElementById("total-cost").textContent = 0;
+            }
+        }
+    </script>
+</body>
+</html>
